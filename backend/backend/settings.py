@@ -105,6 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = ['http://localhost:4200', 'http://localhost:8000']
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+SESSION_COOKIE_SECURE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
