@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WorkoutModule } from './workout/workout.module';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { WorkoutModule } from './workout/workout.module';
     BrowserAnimationsModule,
     WorkoutModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

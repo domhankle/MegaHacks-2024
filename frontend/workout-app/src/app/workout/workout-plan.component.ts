@@ -19,7 +19,7 @@ export class WorkoutPlanComponent implements OnInit {
     };
     this._workoutService.createWorkoutPlan(data).subscribe(
       (response) => {
-        console.log('Succes! ', response);
+        console.log('Success! ', response);
       },
       (error) => {
         console.log('Error! ', response);
