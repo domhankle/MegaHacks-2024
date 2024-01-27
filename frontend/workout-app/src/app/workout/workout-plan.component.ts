@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { WorkoutService } from './workout.service';
+import { WorkoutPlan } from './types';
+import { response } from 'express';
 
 @Component({
   selector: 'app-workout-plan',
@@ -11,8 +13,17 @@ export class WorkoutPlanComponent implements OnInit {
   constructor(private _workoutService: WorkoutService) {}
 
   public ngOnInit(): void {
-    this._workoutService.getWorkoutPlan(1).subscribe((data) => {
-      console.log(data);
-    });
+    let data: WorkoutPlan = {
+      name: "Dom's Workout Plan",
+      exercises: [{ name: 'Push-up', sets: 10, reps: 30 }],
+    };
+    this._workoutService.createWorkoutPlan(data).subscribe(
+      (response) => {
+        console.log('Succes! ', response);
+      },
+      (error) => {
+        console.log('Error! ', response);
+      }
+    );
   }
 }
