@@ -34,6 +34,7 @@ def createPlan(request):
 
     response_data = {
         'name': new_plan.name,
+        'id': new_plan.id,
         'exercises': list(new_plan.exercises.values('name', 'reps', 'sets'))
     }
 
@@ -51,6 +52,8 @@ def getAll(request):
         })
 
     return JsonResponse(output, safe=False)
+
+
 
 
 
