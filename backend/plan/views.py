@@ -20,12 +20,27 @@ def getPlan(request):
 
 
 def createPlan(request):
-    new_plan = ExercisePlan.objects.create(name=request.name)
+    new_plan = ExercisePlan.objects.create(name=request.data['name'])
     
     for e in request.exercises:
         new_plan.exercises.add(Exercise.objects.create(name=e.name, rep=e.reps, sets=e.sets))
     
     new_plan.save()
+
+
+def getAll(request):
+    plans = ExercisePlan.objects.all()
+    output = []
+
+    for plan in plans:
+        output.append({
+            'name': plan.name,
+            'exercises': list(plan.exercises.values('name', 'reps', 'sets'))
+        })
+
+    return JsonResponse(output, safe=False)
+
+
 
 
 
