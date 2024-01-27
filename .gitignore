@@ -1,44 +1,37 @@
 venv
 
-# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
-./frontend/workout-app/dist
-./frontend/workout-app/tmp
-./frontend/workout-app/out-tsc
-./frontend/workout-app//bazel-out
+frontend/workout-app/dist
+frontend/workout-app/tmp
+frontend/workout-app/out-tsc
+frontend/workout-app//bazel-out
 
-# Node
-./frontend/workout-app/node_modules
-./frontend/workout-app/npm-debug.log
-./frontend/workout-app/yarn-error.log
+frontend/workout-app/node_modules
+frontend/workout-app/npm-debug.log
+frontend/workout-app/yarn-error.log
 
-# IDEs and editors
-./frontend/workout-app/.idea/
-./frontend/workout-app/.project
-./frontend/workout-app/.classpath
-./frontend/workout-app/.c9/
-./frontend/workout-app/*.launch
-./frontend/workout-app/.settings/
-./frontend/workout-app/*.sublime-workspace
+frontend/workout-app/.idea/
+frontend/workout-app/.project
+frontend/workout-app/.classpath
+frontend/workout-app/.c9/
+frontend/workout-app/*.launch
+frontend/workout-app/.settings/
+frontend/workout-app/*.sublime-workspace
 
-# Visual Studio Code
-./frontend/workout-app/.vscode/*
-./frontend/workout-app/!.vscode/settings.json
-./frontend/workout-app/!.vscode/tasks.json
-./frontend/workout-app/!.vscode/launch.json
-./frontend/workout-app/!.vscode/extensions.json
-./frontend/workout-app/.history/*
+frontend/workout-app/.vscode/*
+frontend/workout-app/!.vscode/settings.json
+frontend/workout-app/!.vscode/tasks.json
+frontend/workout-app/!.vscode/launch.json
+frontend/workout-app/!.vscode/extensions.json
+frontend/workout-app/.history/*
 
-# Miscellaneous
-./frontend/workout-app/.angular/cache
-./frontend/workout-app/.sass-cache/
-./frontend/workout-app/connect.lock
-./frontend/workout-app/coverage
-./frontend/workout-app/libpeerconnection.log
-./frontend/workout-app/testem.log
-./frontend/workoout-app/typings
+frontend/workout-app/.angular/cache
+frontend/workout-app/.sass-cache/
+frontend/workout-app/connect.lock
+frontend/workout-app/coverage
+frontend/workout-app/libpeerconnection.log
+frontend/workout-app/testem.log
+frontend/workout-app/typings
 
-# System files
-./frontend/workout-app/.DS_Store
-./frontend/workout-app/Thumbs.db
+frontend/workout-app/.DS_Store
+frontend/workout-app/Thumbs.db
