@@ -19,4 +19,14 @@ def getPlan(request):
     return JsonResponse(data)
 
 
+def createPlan(request):
+    new_plan = ExercisePlan.objects.create(name=request.name)
+    
+    for e in request.exercises:
+        new_plan.exercises.add(Exercise.objects.create(name=e.name, rep=e.reps, sets=e.sets))
+    
+    new_plan.save()
+
+
+
 
