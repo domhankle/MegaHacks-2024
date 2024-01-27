@@ -24,12 +24,8 @@ def getPlan(request):
 
 @csrf_exempt 
 def createPlan(request):
-<<<<<<< HEAD
-    new_plan = ExercisePlan.objects.create(name=request.data['name'])
-=======
     request_data = json.loads(request.body.decode('utf-8'))
     new_plan = ExercisePlan.objects.create(name=request_data.get('name'))
->>>>>>> origin/dom-frontend
     
     for e in request_data.get('exercises', []):
         new_plan.exercises.add(Exercise.objects.create(name=e.get('name'), reps=e.get('reps'), sets=e.get('sets')))
