@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import User
+from .models import User, Achievement
 from plan.models import ExercisePlan, Exercise
 import json
 import hashlib
@@ -19,8 +19,10 @@ def createUser(request):
 
     new_user.password = hashed_pass
 
-    new_user.save()
+    new_user.achievements.add(Achievement.object.create(name="First Session", description="Completed first workout session.", level=0))
 
+    new_user.save()
+    
     return "Successss"
 
 @csrf_exempt
@@ -50,7 +52,8 @@ def getUser(request):
     for plan in User.plans:
         output.append({
             'name': plan.name,
-            'exercises': list(plan.exercises.values('name', 'reps', 'sets'))
+            'exercises': list(plan.exercises.values('name', 'reps', 'sets')),
+            'achievements': list(user.achievements.values('name', 'level'))
         })
 
     return JsonResponse(output, safe=False)
