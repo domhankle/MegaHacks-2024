@@ -1,0 +1,21 @@
+@import '_colors.scss';
+
+
+
+:host{
+
+    .app-header{
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        background-color: getColor($primary-colors, 'dark');
+    }
+
+    .app-add-workout-button{
+        
+    }
+    
+
+
+}
+

@@ -23,24 +23,6 @@ def getPlan(request):
 
     return JsonResponse(data)
 
-# @csrf_exempt 
-# def createPlan(request):
-#     request_data = json.loads(request.body.decode('utf-8'))
-#     new_plan = ExercisePlan.objects.create(name=request_data.get('name'))
-    
-#     for e in request_data.get('exercises', []):
-#         new_plan.exercises.add(Exercise.objects.create(name=e.get('name'), reps=e.get('reps'), sets=e.get('sets')))
-    
-#     new_plan.save()
-
-#     response_data = {
-#         'name': new_plan.name,
-#         'id': new_plan.id,
-#         'exercises': list(new_plan.exercises.values('name', 'reps', 'sets'))
-#     }
-
-#     return JsonResponse(response_data)
-
 @csrf_exempt 
 def createPlan(request):
     request_data = json.loads(request.body.decode('utf-8'))
@@ -49,17 +31,35 @@ def createPlan(request):
     for e in request_data.get('exercises', []):
         new_plan.exercises.add(Exercise.objects.create(name=e.get('name'), reps=e.get('reps'), sets=e.get('sets')))
     
-    user = User.objects.get(request_data.get('id'))
-    user.plans.add(new_plan)
-    user.save()
+    new_plan.save()
 
     response_data = {
         'name': new_plan.name,
-        'userid': user.id,
+        'id': new_plan.id,
         'exercises': list(new_plan.exercises.values('name', 'reps', 'sets'))
     }
 
     return JsonResponse(response_data)
+
+# @csrf_exempt 
+# def createPlan(request):
+#     request_data = json.loads(request.body.decode('utf-8'))
+#     new_plan = ExercisePlan.objects.create(name=request_data.get('name'))
+    
+#     for e in request_data.get('exercises', []):
+#         new_plan.exercises.add(Exercise.objects.create(name=e.get('name'), reps=e.get('reps'), sets=e.get('sets')))
+    
+#     user = User.objects.get(request_data.get('id'))
+#     user.plans.add(new_plan)
+#     user.save()
+
+#     response_data = {
+#         'name': new_plan.name,
+#         'userid': user.id,
+#         'exercises': list(new_plan.exercises.values('name', 'reps', 'sets'))
+#     }
+
+#     return JsonResponse(response_data)
 
 
 @csrf_exempt

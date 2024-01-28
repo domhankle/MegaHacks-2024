@@ -1,0 +1,100 @@
+@import '../colors';
+
+:host{
+    .dialog-header{
+       background-color: getColor($primary-colors, 'light');
+    }
+
+    .dialog-actions-footer{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .create-button{
+        background-color: getColor($primary-colors, 'dark');
+    }
+    .create-button-text{
+        color: getColor($primary-colors, 'light');
+    }
+
+    .add-exercise-container{
+        margin-top: 10px;
+        height: 10%;
+        display: flex;
+        align-items: center;
+    }
+
+    .plan-form-field{
+        width: 400px;
+        margin-top: 5px;
+    }
+
+    .exercise-form-field{
+        max-width: 200px;
+        margin: 0 10px;
+
+        &.short-field{
+            max-width: 100px;
+        }
+    }
+
+ 
+    .add-exercise-button{
+        background-color: getColor($primary-colors, 'dark');
+        margin-bottom: 20px;
+        width: 200px;
+        height: 50px;
+    }
+
+    .add-exercise-button-text{
+        color: getColor($primary-colors, 'light');
+        font-size: 20px;
+    }
+
+    .exercise-list-wrapper{
+        height: 80%;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 20px;
+        background-color: getColor($primary-colors, 'light');
+        border-radius: 1%;
+    }
+
+    .exercise-list{
+        margin-top: 10px;
+        overflow-y: auto;
+        width: 100%;
+        height: 100%
+    }
+
+    .exercise-item{
+        padding: 10px;
+        margin-bottom: 10px;
+        height: 50px;
+        background-color: whitesmoke;
+    }
+    .exercise-item-info{
+        display: flex;
+        flex-direction: column;
+      
+    }
+
+    .exercise-item-name{
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .exercise-item-details{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .exercise-item-header{
+        margin-bottom: 5px;
+    }
+
+    .exercise-item-reps, .exercise-item-sets{
+        margin-right: 5px;
+    }
+
+}
