@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'app/colors';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: getColor($primary-colors, 'light');}
+
+
+.mat-dialog-override {
+    height: 0px;
+    mat-dialog-container {
+      > :first-child {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      mat-dialog-content,
+      div[mat-dialog-content] {
+        flex-grow: 1;
+        max-height: unset;
+      }
+    }
+  }

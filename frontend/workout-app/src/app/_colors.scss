@@ -1,0 +1,11 @@
+
+$primary-colors: (
+    "dark": #003249, 
+    "medium-dark": #007ea7, 
+    "medium": #80ced7,
+    "medium-light": #9ad1d4,
+    "light": #ccdbdc);
+
+@function getColor($palette, $shade: 'medium'){
+    @return map-get($palette, $shade);
+}

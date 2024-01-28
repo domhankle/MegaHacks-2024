@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WorkoutModule } from './workout/workout.module';
-import { provideHttpClient } from '@angular/common/http';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,13 @@ import { provideHttpClient } from '@angular/common/http';
     BrowserAnimationsModule,
     WorkoutModule,
   ],
-  providers: [provideClientHydration(), provideHttpClient()],
+  providers: [
+    provideClientHydration(),
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { panelClass: 'mat-dialog-override' },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

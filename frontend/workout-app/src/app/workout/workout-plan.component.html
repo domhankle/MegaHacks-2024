@@ -1,3 +1,68 @@
-<div>
-    Workout Plan
-</div>
+<h2 mat-dialog-title class="dialog-header">Create a Workout Plan</h2>
+<mat-dialog-content class="dialog-content">
+    <mat-form-field class="plan-form-field">
+        <mat-label>Plan Name</mat-label>
+        <input matInput 
+        type="text"
+        [(ngModel)]="currentPlanName">
+    </mat-form-field>
+    <div class="exercise-list-wrapper">
+        <div class="add-exercise-container">
+            <button mat-button
+            class="add-exercise-button"
+            [disabled]="!currentExerciseName || !currentExerciseReps || !currentExerciseSets"
+            (click)="onAddExercise()">
+                <span class="add-exercise-button-text">+ Exercise</span>
+            </button>
+    
+            <mat-form-field class="exercise-form-field">
+                <mat-label>Exercise Name</mat-label>
+                <input matInput 
+                type="text"
+                [(ngModel)]="currentExerciseName">
+            </mat-form-field>
+    
+            <mat-form-field class="exercise-form-field short-field">
+                <mat-label>Reps</mat-label>
+                <input matInput 
+                type="number"
+                [(ngModel)]="currentExerciseReps">
+            </mat-form-field>
+    
+            <mat-form-field class="exercise-form-field short-field">
+                <mat-label>Sets</mat-label>
+                <input matInput 
+                type="number"
+                [(ngModel)]="currentExerciseSets">
+            </mat-form-field>
+        </div>
+
+        <div class="exercise-list">
+            <div *ngFor="let exercise of exercises" class="exercise-item">
+                <div class="exercise-item-info">
+                    <div class="exercise-item-header">
+                        <span class="exercise-item-name">{{exercise.name}}</span>
+                    </div>
+                    <div class="exercise-item-details">
+                        <span class="exercise-item-reps">Reps: {{exercise.reps}}</span>
+                        <span class="exercise-item-sets">Sets: {{exercise.sets}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions-footer">
+    <button mat-button 
+    class="cancel-button"
+    (click)="onCancelClose()">
+        <span class="cancel-button-text">Cancel</span>
+    </button>
+    <button mat-button 
+    [disabled]="!currentPlanName"
+    class="create-button"
+    (click)="onCreateClose()">
+        <span class="create-button-text">Create</span>
+    </button>
+</mat-dialog-actions>
