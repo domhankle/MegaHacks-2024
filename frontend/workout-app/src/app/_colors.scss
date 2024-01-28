@@ -7,7 +7,8 @@ $primary-colors: (
     "light": #ccdbdc);
 
 $misc: (
-    "highlight-green": 	#7fbe76
+    "highlight-green": 	#7fbe76,
+    "highlight-red": #ef233c
 );
 
 @function getColor($palette, $shade: 'medium'){

@@ -1,6 +1,11 @@
 <div class="plans-container">
     <div class="plan-card" *ngFor="let plan of plans">
         <h1 class="plan-name">{{plan.name}}</h1>
+        <button mat-button
+        class="delete-plan-button"
+        (click)="deletePlan(plan.id)">
+        Delete
+        </button>
         <app-start-walkthrough
         [planName]="plan.name"
         [exercises]="plan.exercises"></app-start-walkthrough>

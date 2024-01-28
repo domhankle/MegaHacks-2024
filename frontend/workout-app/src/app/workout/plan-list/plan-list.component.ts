@@ -27,4 +27,25 @@ export class PlanListComponent implements OnInit {
       }
     );
   }
+
+  public deletePlan(id?: number): void {
+    if (id) {
+      this._workService.deleteWorkoutPlan(id).subscribe(
+        (result) => {
+          console.log('Successful DELETE of id: ', id);
+          this._workService.getWorkoutPlans().subscribe(
+            (data) => {
+              this._workService.setPlans(data);
+            },
+            (error) => {
+              console.log('Failed to fetch the plans');
+            }
+          );
+        },
+        (error) => {
+          console.log('Failed to DELETE id: ', id);
+        }
+      );
+    }
+  }
 }

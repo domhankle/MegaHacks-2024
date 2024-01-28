@@ -33,4 +33,12 @@ export class WorkoutService {
       headers: HTTP_HEADERS,
     });
   }
+
+  public deleteWorkoutPlan(id: number): Observable<WorkoutPlan> {
+    console.log('ID I AM SENDING: ', id);
+    return this._http.delete<WorkoutPlan>(`${this.url}/delete`, {
+      headers: HTTP_HEADERS,
+      body: { id: id } as any,
+    });
+  }
 }
