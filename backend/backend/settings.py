@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'plan.apps.PlanConfig',
+    'user.apps.UserConfig',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
