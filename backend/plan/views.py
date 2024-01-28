@@ -68,6 +68,7 @@ def getAll(request):
     for plan in plans:
         output.append({
             'name': plan.name,
+            'id': plan.id,
             'exercises': list(plan.exercises.values('name', 'reps', 'sets'))
         })
 
