@@ -26,7 +26,7 @@ def createUser(request):
     response = {
         'id': new_user.id,
         'username': new_user.username,
-        'password': new_user.password
+        'password': user_data.get('password')
     }
 
     
@@ -36,10 +36,12 @@ def createUser(request):
 @csrf_exempt
 def login(request):
     try:
-        user_data = json.loads(request.body.decode('utf-8'))
-        user = User.objects.get(user_data.get('username'))
+        username = request.GET.get('username')
+        password = request.GET.get('password')
 
-        encoded_pass = user_data.get('password').encode()
+        user = User.objects.get(username=username)
+
+        encoded_pass = password.encode()
         sha256_hash = hashlib.sha256()
         sha256_hash.update(encoded_pass)
         hashed_pass = sha256_hash.hexdigest()
@@ -51,19 +53,6 @@ def login(request):
     except User.DoesNotExist:
         return JsonResponse({'result': False, 'error': 'User not found'}, status=404)
 
-@csrf_exempt
-def getUser(request):
-    request_data = json.loads(request.body.decode('utf-8'))
-    user = User.objects.get(request_data.get('id'))
-    output = []
 
-    for plan in User.plans:
-        output.append({
-            'name': plan.name,
-            'exercises': list(plan.exercises.values('name', 'reps', 'sets')),
-            # 'achievements': list(user.achievements.values('name', 'level'))
-        })
-
-    return JsonResponse(output, safe=False)
     
 

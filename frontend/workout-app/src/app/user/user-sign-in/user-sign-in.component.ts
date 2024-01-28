@@ -24,7 +24,7 @@ export class UserSignInComponent {
       this._userService.signIn(this.username, this.password).subscribe(
         (data) => {
           if (data.id) {
-            this._userService.setCurrentUseId(data.id);
+            this._userService.setCurrentUserId(data.id);
             this._router.navigate(['/home']);
           }
         },

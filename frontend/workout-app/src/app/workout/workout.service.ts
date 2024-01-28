@@ -20,12 +20,8 @@ export class WorkoutService {
     this.plans.next(planArray);
   }
 
-  public getWorkoutPlan(name: string): Observable<WorkoutPlan> {
-    return this._http.get<WorkoutPlan>(`${this.url}/${name}`);
-  }
-
-  public getWorkoutPlans(): Observable<WorkoutPlan[]> {
-    return this._http.get<WorkoutPlan[]>(`${this.url}/plans`);
+  public getWorkoutPlans(userid: number): Observable<WorkoutPlan[]> {
+    return this._http.get<WorkoutPlan[]>(`${this.url}/plans?userid=${userid}`);
   }
 
   public createWorkoutPlan(plan: WorkoutPlan): Observable<WorkoutPlan> {
@@ -34,11 +30,14 @@ export class WorkoutService {
     });
   }
 
-  public deleteWorkoutPlan(id: number): Observable<WorkoutPlan> {
+  public deleteWorkoutPlan(
+    userid: number,
+    id: number
+  ): Observable<WorkoutPlan> {
     console.log('ID I AM SENDING: ', id);
     return this._http.delete<WorkoutPlan>(`${this.url}/delete`, {
       headers: HTTP_HEADERS,
-      body: { id: id } as any,
+      body: { userid: userid, planid: id } as any,
     });
   }
 }
