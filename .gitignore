@@ -1,6 +1,6 @@
 venv
 
-
+backend/db.sqlite3
 frontend/workout-app/dist
 frontend/workout-app/tmp
 frontend/workout-app/out-tsc
