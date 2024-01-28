@@ -24,16 +24,17 @@ export class AddWorkoutPlanComponent {
       if (result) {
         this._workoutService.createWorkoutPlan(result).subscribe(
           (result) => {
-            console.log('Successfully POSTed the Workout Plan: ', result);
-            this._workoutService.getWorkoutPlans().subscribe((result)=>{
-              console.log("Successful GET for all the plans: ", result)
-            },
-            (error) => {
-              console.log("Failed to GET all the plans!", error);
-            })
+            this._workoutService.getWorkoutPlans().subscribe(
+              (data) => {
+                this._workoutService.setPlans(data);
+              },
+              (error) => {
+                console.log('Failed to refetch all plans!');
+              }
+            );
           },
           (error) => {
-            console.log('Failed to POST the Workout Plan: ', error);
+            console.log('Failed to POST new plan!');
           }
         );
       } else {

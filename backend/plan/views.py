@@ -79,13 +79,15 @@ def deleteAll(request):
     ExercisePlan.objects.all().delete()
     return "DUBDUBDUBDUBDUBDUBDUBDUB"
 
+@csrf_exempt 
 def deletePlan(request):
     request_data = json.loads(request.body.decode('utf-8'))
+    id_param = request_data.get('id')
 
-    plan = ExercisePlan.object.get(id=request.get("id"))
+    plan = ExercisePlan.objects.get(id=id_param)
     plan.delete()
 
-    return "killinIS ISI SMYSLESF"
+    return JsonResponse({'id': id_param})
 
 
     
