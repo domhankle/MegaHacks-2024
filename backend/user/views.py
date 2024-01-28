@@ -19,7 +19,7 @@ def createUser(request):
 
     new_user.password = hashed_pass
 
-    new_user.achievements.add(Achievement.object.create(name="First Session", description="Completed first workout session.", level=0))
+    # new_user.achievements.add(Achievement.object.create(name="First Session", description="Completed first workout session.", level=0))
 
     new_user.save()
     
@@ -53,7 +53,7 @@ def getUser(request):
         output.append({
             'name': plan.name,
             'exercises': list(plan.exercises.values('name', 'reps', 'sets')),
-            'achievements': list(user.achievements.values('name', 'level'))
+            # 'achievements': list(user.achievements.values('name', 'level'))
         })
 
     return JsonResponse(output, safe=False)
