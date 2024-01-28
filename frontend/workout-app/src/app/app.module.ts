@@ -20,6 +20,7 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     WorkoutModule,
+    UserModule,
   ],
   providers: [
     provideClientHydration(),

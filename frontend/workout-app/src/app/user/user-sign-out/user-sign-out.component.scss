@@ -1,0 +1,15 @@
+@import '../../_colors.scss';
+
+:host{
+    .sign-out-button{
+        min-width: 100px;
+        background-color: getColor($primary-colors, 'medium');
+        min-height: 50px;
+        margin: 10px;
+    }
+
+    .sign-out-button-text{
+        font-size: 16px;
+    }
+
+}
