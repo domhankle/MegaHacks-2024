@@ -77,7 +77,7 @@ def getAll(request):
 def deleteAll(request):
     Exercise.objects.all().delete()
     ExercisePlan.objects.all().delete()
-    return "DUBDUBDUBDUBDUBDUBDUBDUB"
+    return JsonResponse({"status":"success?"})
 
 # @csrf_exempt 
 # def deletePlan(request):

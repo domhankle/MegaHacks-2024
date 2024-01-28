@@ -22,8 +22,16 @@ def createUser(request):
     new_user.achievements.add(Achievement.object.create(name="First Session", description="Completed first workout session.", level=0))
 
     new_user.save()
+
+    response = {
+        'id': new_user.id,
+        'username': new_user.username,
+        'password': new_user.password
+    }
+
     
-    return "Successss"
+    
+    return JsonResponse(response)
 
 @csrf_exempt
 def login(request):
