@@ -77,15 +77,26 @@ def getAll(request):
 def deleteAll(request):
     Exercise.objects.all().delete()
     ExercisePlan.objects.all().delete()
-    return "DUBDUBDUBDUBDUBDUBDUBDUB"
+    return JsonResponse({"status":"success?"})
+
+# @csrf_exempt 
+# def deletePlan(request):
+#     request_data = json.loads(request.body.decode('utf-8'))
+#     id_param = request_data.get('id')
+
+#     plan = ExercisePlan.objects.get(id=id_param)
+#     plan.delete()
+
+#     return JsonResponse({'id': id_param})
 
 @csrf_exempt 
 def deletePlan(request):
     request_data = json.loads(request.body.decode('utf-8'))
-    id_param = request_data.get('id')
+    id_param = request_data.get('userid')
 
-    plan = ExercisePlan.objects.get(id=id_param)
-    plan.delete()
+    user = User.objects.get(id=id_param)
+    user.plans.remove(request_data.get('planid'))
+    user.save()
 
     return JsonResponse({'id': id_param})
 
