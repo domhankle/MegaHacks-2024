@@ -7,7 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+  ],
   exports: [
     MatButtonModule,
     MatDialogModule,

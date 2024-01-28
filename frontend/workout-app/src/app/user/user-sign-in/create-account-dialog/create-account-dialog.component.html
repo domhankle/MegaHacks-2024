@@ -1,0 +1,35 @@
+<h2 mat-dialog-title class="dialog-header">Create a New Account</h2>
+<mat-dialog-content class="dialog-content">
+            <mat-form-field class="username-input-field">
+                <mat-label>Username</mat-label>
+                <input matInput type="text"
+                [(ngModel)]="username">
+            </mat-form-field>
+
+            <mat-form-field class="password-input-field">
+                <mat-label>Password</mat-label>
+                <input matInput type="text"
+                [(ngModel)]="password">
+            </mat-form-field>
+
+            <mat-form-field class="confirm-password-input-field">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="text"
+                [(ngModel)]="confirmPassword">
+            </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions-footer">
+    <div class="action-buttons">
+        <button mat-button
+        (click)="onCancelClick()"
+        class="cancel-button">
+        Cancel
+        </button>
+        <button mat-button
+        (click)="onCreateClick()"
+        [disabled]="!username || !password || !confirmPassword || !(password === confirmPassword)"
+        class="create-button">
+        Create
+        </button>
+    </div>
+</mat-dialog-actions>

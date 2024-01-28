@@ -1,0 +1,36 @@
+@import '../../../colors';
+
+:host{
+    .dialog-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .username-input-field, .password-input-field, .confirm-password-input-field{
+        width: 100%;
+    }
+
+    .cancel-button{
+        background-color: getColor($primary-colors, 'light');
+        color: getColor($primary-colors, 'dark');
+    }
+
+    .create-button{
+        color: getColor($primary-colors, 'light');
+        background-color: getColor($primary-colors, 'dark');
+    }
+
+    .cancel-button, .create-button{
+        margin: 0 100px;
+    }
+
+    .action-buttons{
+        display: flex;
+        justify-content: center;
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}

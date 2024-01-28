@@ -1,0 +1,36 @@
+<div class="sign-in-body">
+    <div class="sign-in-panel">
+        <div class="header-bar">
+            <h1 class="app-title">FitFolio</h1>
+        </div>
+        <div class="input-container">
+            <mat-form-field class="username-input-field">
+                <mat-label>Username</mat-label>
+                <input matInput type="text"
+                [(ngModel)]="username">
+            </mat-form-field>
+
+            <mat-form-field class="password-input-field">
+                <mat-label>Password</mat-label>
+                <input matInput type="text"
+                [(ngModel)]="password">
+            </mat-form-field>
+    
+            <div class="action-buttons">
+                <button mat-button
+                (click)="onCreateAccountClick()"
+                class="create-account-button">
+                Create Account
+                </button>
+                <button mat-button
+                [disabled]="!username || !password"
+                (click)="onSignInClick()"
+                class="sign-in-button">
+                Sign In
+                </button>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
