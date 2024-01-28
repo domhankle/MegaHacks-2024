@@ -53,7 +53,7 @@ def getUser(request):
         output.append({
             'name': plan.name,
             'exercises': list(plan.exercises.values('name', 'reps', 'sets')),
-            'achievements': list(user.achievements.values('name', 'level'))
+            # 'achievements': list(user.achievements.values('name', 'level'))
         })
 
     return JsonResponse(output, safe=False)

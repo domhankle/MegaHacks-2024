@@ -15,7 +15,7 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     # completions = models.PositiveIntegerField()
     plans = models.ManyToManyField(ExercisePlan)
-    achievements = models.ManyToManyField(Achievement)
+    # achievements = models.ManyToManyField(Achievement)
 
     def __str__(self):
         return self.name
