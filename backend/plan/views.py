@@ -9,7 +9,6 @@ import json
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt 
 def getPlan(request):
     pushups = Exercise.objects.create(name="Push-up", reps=10, sets=3)
     squats = Exercise.objects.create(name="Squats", reps=15, sets=3)
@@ -62,7 +61,6 @@ def createPlan(request):
 #     return JsonResponse(response_data)
 
 
-@csrf_exempt
 def getAll(request):
     plans = ExercisePlan.objects.all()
     output = []
@@ -74,6 +72,23 @@ def getAll(request):
         })
 
     return JsonResponse(output, safe=False)
+
+def deleteAll(request):
+    Exercise.objects.all().delete()
+    ExercisePlan.objects.all().delete()
+    return "DUBDUBDUBDUBDUBDUBDUBDUB"
+
+def deletePlan(request):
+    request_data = json.loads(request.body.decode('utf-8'))
+
+    plan = ExercisePlan.object.get(id=request.get("id"))
+    plan.delete()
+
+    return "killinIS ISI SMYSLESF"
+
+
+    
+
 
 
 
