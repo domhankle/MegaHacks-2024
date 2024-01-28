@@ -1,0 +1,47 @@
+<h2 mat-dialog-title class="dialog-header">{{data.title}}</h2>
+<mat-dialog-content class="dialog-content">
+    <div #slidingContainer class="exercise-list-container">
+        <div *ngFor="let exercise of data.exercises" 
+        class="exercise-panel-container">
+            <div class="exercise-panel">
+                <h1 class="exercise-name">
+                    {{exercise.name}}
+                </h1>
+                <span class="exercise-reps">
+                    Reps: {{exercise.reps}}
+                </span>
+                <span class="exercise-sets">
+                    Sets: {{exercise.sets}}
+                </span>
+            </div>
+        </div>
+        <div class="exercise-panel-container">
+            <div class="exercise-panel complete-panel"
+            (click)="onWorkoutComplete()">
+                <h1 class="complete-panel-text">Complete Workout</h1>
+            </div>
+        </div>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions-footer">
+    
+    <div class="previous-button-wrapper">
+        <button mat-button class="previous-button"
+        *ngIf="exerciseIndexInView > 0"
+        (click)="onPreviousClicked()">
+            <span class="previous-button-text">Previous</span>
+        </button>
+    </div>
+  
+    <div class="next-button-wrapper">
+        <button mat-button class="next-button"
+        *ngIf="exerciseIndexInView < data.exercises.length"
+        (click)="onNextClicked()">
+            <span class="next-button-text">Next</span>
+        </button>
+    </div>
+
+
+
+</mat-dialog-actions>
