@@ -24,16 +24,10 @@ export class AddWorkoutPlanComponent {
       if (result) {
         this._workoutService.createWorkoutPlan(result).subscribe(
           (result) => {
-            console.log('Successfully POSTed the Workout Plan: ', result);
-            this._workoutService.getWorkoutPlans().subscribe((result)=>{
-              console.log("Successful GET for all the plans: ", result)
-            },
-            (error) => {
-              console.log("Failed to GET all the plans!", error);
-            })
+            
           },
           (error) => {
-            console.log('Failed to POST the Workout Plan: ', error);
+            
           }
         );
       } else {
