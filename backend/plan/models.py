@@ -13,7 +13,7 @@ class Exercise(models.Model):
 
 class ExercisePlan(models.Model):
     name = models.CharField(max_length=100)
-    userid = models.PositiveIntegerField()
+    # userid = models.PositiveIntegerField()
     exercises = models.ManyToManyField(Exercise)
 
     def __str__(self):
