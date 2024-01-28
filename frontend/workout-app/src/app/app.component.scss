@@ -3,16 +3,28 @@
 
 
 :host{
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     .app-header{
         display: flex;
         justify-content: flex-end;
         padding: 20px;
         background-color: getColor($primary-colors, 'dark');
+        align-items: center;
     }
 
-    .app-add-workout-button{
-        
+    .app-title{
+        margin: 0;
+        flex-grow: 1;
+        color: getColor($primary-colors, light);
+        font-style: italic;
+        font-weight: bolder;
+        font-size: 60px;
+    }
+
+    .app-body{
+        flex-grow: 1;
     }
     
 

@@ -1,0 +1,32 @@
+@import '../../colors';
+
+:host{
+    
+    display: flex;
+    justify-content: center;
+    .plans-container{
+        height: calc(100% - 40px);
+        width: calc(80% - 200px);
+        overflow-y: auto;
+    }
+    .plan-card{
+        margin: 20px;
+        padding: 10px;
+        height: 80px;
+        background-color: whitesmoke;
+        display: flex;
+        align-items: center;
+        outline: solid;
+        outline-width: 1px;
+        outline-color: getColor($primary-colors, 'medium-dark');
+    }
+
+    .plan-name{
+        flex-grow: 1;
+        margin: 0 10px;
+    }
+
+   
+
+    
+}

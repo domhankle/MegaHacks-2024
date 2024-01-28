@@ -6,6 +6,10 @@ $primary-colors: (
     "medium-light": #9ad1d4,
     "light": #ccdbdc);
 
+$misc: (
+    "highlight-green": 	#7fbe76
+);
+
 @function getColor($palette, $shade: 'medium'){
     @return map-get($palette, $shade);
 }

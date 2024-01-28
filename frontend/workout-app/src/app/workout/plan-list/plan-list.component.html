@@ -1,0 +1,8 @@
+<div class="plans-container">
+    <div class="plan-card" *ngFor="let plan of plans">
+        <h1 class="plan-name">{{plan.name}}</h1>
+        <app-start-walkthrough
+        [planName]="plan.name"
+        [exercises]="plan.exercises"></app-start-walkthrough>
+    </div>
+</div>

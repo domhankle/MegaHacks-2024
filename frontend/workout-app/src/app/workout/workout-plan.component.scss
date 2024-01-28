@@ -1,9 +1,7 @@
 @import '../colors';
 
 :host{
-    .dialog-header{
-       background-color: getColor($primary-colors, 'light');
-    }
+   
 
     .dialog-actions-footer{
         display: flex;
